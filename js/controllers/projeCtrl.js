@@ -9,13 +9,16 @@ angular.module("proje").controller("projeCtrl", function($scope){
 
 
 	$scope.geraUrl = function gimmeLinks() {
-		//var i = Math.floor((Math.random() * 3) + 1);
-		$scope.randomCode = $scope.urls[Math.floor((Math.random() * 3) + 1)];
+		var i = $scope.urls.length - 1;
+
+		$scope.randomCode = $scope.urls[Math.floor((Math.random() * i) + 1)];
 		if(array.indexOf($scope.randomCode)==-1){
 
 			array.push($scope.randomCode);
+			// *** futuramente remover o document.getElementById e colocar uma solução mais "Angular" ***
+
 			document.getElementById("linkYT").src = "https://www.youtube.com/embed/"+$scope.randomCode;
-		} else if(array.length == 3) {
+		} else if(array.length == i) {
 			console.log('acabou');
 			$scope.noMoreLinks = false;
 			$scope.youtube = true;
@@ -24,7 +27,16 @@ angular.module("proje").controller("projeCtrl", function($scope){
 
 	}
 
+	$scope.colocaUrl = function adicionarUrl(){
+		var url = document.getElementById("urlAdd").value;
+		var urlTrim = url.substring(url.lastIndexOf('=') + 1);
+
+		console.log(urlTrim);
+
+		$scope.urls.push(urlTrim);
+
+	}
+
 });
 
-//achar uma forma de não repetir o processo de gerar Url
-//regExp talvez?
+//	https://www.youtube.com/watch?v=LTweat11TdE

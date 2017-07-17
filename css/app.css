@@ -3,6 +3,11 @@ html, body{
 	overflow: auto;
 }
 
-.botao{
+.form{
 	display: inline-block;
+}
+
+.topo{
+	position: relative;
+	padding-left: 20px;
 }
