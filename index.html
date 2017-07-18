@@ -22,11 +22,11 @@
 		<div class="container">
 			<div class="row">
 
-				<div class="col-md-6 botao" ng-model="youtube">
+				<div class="col-sm-6 botao" ng-model="youtube">
 					<button ng-disabled="youtube" ng-click="geraUrl()" class="btn btn-default">random</button>
 				</div>
 
-				<div class="col-md-6">
+				<div class="col-sm-6">
 				</div>
 
 			</div>
@@ -35,16 +35,20 @@
 			<br>
 
 			<div class="row">
-				<div class="col-md-6">
-					<h4>Insira um link</h4>
-					<form>
-						<input type="text" name="insiraLinks" placeholder="ex: https://www.youtube.com/watch?v=sx36tuCzUOE" class="form-control" id="urlAdd">
+				<div class="col-sm-6">
+					<form name="urlForm">
+						
+						<label>Insira um link: </label>
+						<input type="text" placeholder="ex: https://www.youtube.com/watch?v=sx36tuCzUOE" class="form-control" ng-model="url.youtube" ng-pattern="/^((?:https?:)?\/\/)?((?:www|m)\.)?((?:youtube\.com|youtu.be))(\/(?:[\w\-]+\?v=|embed\/|v\/)?)([\w\-]+)(\S+)?$/gm" ng-required="true" />
+
+
+						<button class="btn btn-primary btn-block" ng-disabled="urlForm.$invalid" ng-click="colocaUrl()">adicionar link</button>
+
 					</form>
 
-					<button class="btn btn-primary btn-block" ng-click="colocaUrl()"s>adicionar link</button>
 				</div>
 
-				<div class="col-md-6">
+				<div class="col-sm-6">
 					<iframe id="linkYT" width="560" height="315" frameborder="0" allowfullscreen></iframe>
 					<span ng-model="noMoreLinks"><h2 ng-hide="noMoreLinks">acabaram os links :-/</h2></span>
 				</div>
