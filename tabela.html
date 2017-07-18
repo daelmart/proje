@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html ng-app="proje">
+<head>
+	<title>proje - tabela</title>
+	<meta charset="utf-8">
+	<meta charset="utf-8">
+	<script src="lib/angular/angular.js"></script>
+	<script src="lib/angular/angular-messages.js"></script>
+	<script src="js/app.js"></script>	
+	<script src="js/controllers/projeCtrl.js"></script>
+	<link rel="stylesheet" type="text/css" href="lib/bootstrap/bootstrap.css">
+</head>
+<body ng-controller="projeCtrl">
+
+	<div class="jumbotron">
+
+		<div class="container">
+
+			<div class="row">
+
+				<div class="col-sm-4">
+
+				</div>
+
+				<div class="col-sm-4">
+
+				<table class="table table-stripped">
+					<!-- aqui ficam os links
+							como mostrar o nome da música sem o <iframe>? -->
+							<tr ng-repeat="url in urls">
+
+								<form name="removeForm">
+									<td><input type="checkbox" ng-model="urls"></td>
+									<td>{{url}}</td>
+
+								</form>
+									
+							</tr>
+
+
+				</table>
+
+
+				<button class="btn btn-danger btn-block" ng-click="tiraUrl()">REMOVER</button>
+
+				</div>
+
+				<div class="col-sm-4">
+				</div>
+
+			</div>
+
+		</div>
+		
+	</div>
+
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<script src="lib/bootstrap/bootstrap.js"></script>
+</body>
+</html>

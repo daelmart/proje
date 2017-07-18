@@ -19,6 +19,8 @@ angular.module("proje").controller("projeCtrl", function($scope){
 			// *** futuramente remover o document.getElementById e colocar uma solução mais "Angular" ***
 
 			document.getElementById("linkYT").src = "https://www.youtube.com/embed/"+$scope.randomCode;
+
+
 		} else if(array.length == i) {
 			console.log('acabou');
 			$scope.noMoreLinks = false;
@@ -49,6 +51,14 @@ angular.module("proje").controller("projeCtrl", function($scope){
 		
 
 	}
+
+	
+	/* ****** função para remover urls do array urls *******/
+	$scope.tiraUrl = function removerUrl(){
+		console.log('teste');
+
+	}
+
 
 });
 
